@@ -6,8 +6,6 @@ public class Memory {
     private int countElements = 0;
     private int numberInQueue = 0;
 
-    private int change = 0;
-
     Random random = new Random();
 
     private Page[] arrayPages;
@@ -61,7 +59,6 @@ public class Memory {
                 Page page = arrayPages[numberInQueue];
                 countElements--;
                 arrayPages[numberInQueue] = null;
-                change = 1;
                 numberInQueue++;
                 return page;
             }
