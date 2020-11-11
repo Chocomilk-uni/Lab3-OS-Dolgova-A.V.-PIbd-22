@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import Processing.Process;
 
 public class MemoryManager {
-    Memory memory;
-    int countPages = 0;
+    private Memory memory;
+    private int countPages = 0;
 
     private ArrayList<Process> processArray = new ArrayList<>();
 

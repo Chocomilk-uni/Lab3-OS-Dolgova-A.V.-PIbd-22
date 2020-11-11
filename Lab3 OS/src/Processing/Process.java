@@ -32,7 +32,7 @@ public class Process {
 
     public Page getPage() {
         Page page = processesArray.get(processesArray.size() - 1);
-        processesArray.remove(processesArray.size()-1);
+        processesArray.remove(processesArray.size() - 1);
         pagesCount--;
         return page;
     }

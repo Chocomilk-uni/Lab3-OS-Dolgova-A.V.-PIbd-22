@@ -3,10 +3,10 @@ package MemoryManagement;
 import java.util.Random;
 
 public class Memory {
-    int countElements = 0;
-    int numberInQueue = 0;
-    Page changePage;
-    int change = 0;
+    private int countElements = 0;
+    private int numberInQueue = 0;
+
+    private int change = 0;
 
     Random random = new Random();
 
@@ -20,7 +20,7 @@ public class Memory {
         page.setVirtualAddress(number);
         page.setModified(random.nextBoolean());
         if (countElements == arrayPages.length) {
-            changePage = sendPage();
+            sendPage();
         }
         for (int i = 0; i < arrayPages.length; i++) {
             if (arrayPages[i] == null) {
@@ -37,7 +37,7 @@ public class Memory {
         return null;
     }
 
-    //Метод для выгрузки страницы на дис
+    //Метод для выгрузки страницы на диск
     public Page sendPage() {
         for (int i = 0; i < arrayPages.length; i++) {
             if (numberInQueue == arrayPages.length)
