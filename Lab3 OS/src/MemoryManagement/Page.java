@@ -2,49 +2,30 @@ package MemoryManagement;
 
 public class Page {
 
-    private int processID;
-    private int physicalAddress;
-    private int virtualAddress;
-
+    private final int processID;
+    private final int ID;
     //Признак обращения
-    private boolean isModified;
-    //Признак наличия в физической памяти
-    private boolean isPresentOnPhysicalMemory;
+    private boolean isReferred = false;
 
-    public Page(int processID,int virtualAddress) {
+    public Page(int id, int processID) {
+        this.ID = id;
         this.processID = processID;
-        this.physicalAddress = -1;
-        this.virtualAddress = virtualAddress;
-        this.isModified = false;
-        this.isPresentOnPhysicalMemory = false;
     }
 
-    public boolean isModified() {
-        return isModified;
+    public int getID() {
+        return ID;
     }
 
-    public boolean isPresentOnPhysicalMemory() {
-        return isPresentOnPhysicalMemory;
+    public boolean isReferred() {
+        return isReferred;
     }
 
-    public void setPresentOnPhysicalMemory(boolean presentOnPhysicalMemory) {
-        this.isPresentOnPhysicalMemory = presentOnPhysicalMemory;
+    public void setReferred(boolean referred) {
+        isReferred = referred;
     }
 
-    public void setModified(boolean modified) {
-        this.isModified = modified;
-    }
-
-    public void setPhysicalAddress(int physicalAddress) {
-        this.physicalAddress = physicalAddress;
-    }
-
-    public int getVirtualAddress() {
-        return virtualAddress;
-    }
-
-    public void setVirtualAddress(int virtualAddress) {
-        this.virtualAddress = virtualAddress;
+    public Page copyPage() {
+        return new Page(this.getID(), this.getProcessID());
     }
 
     public int getProcessID() {
